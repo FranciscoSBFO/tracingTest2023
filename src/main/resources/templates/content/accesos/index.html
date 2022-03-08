@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="/dependences/accesos/_HeadInside"></th:block>
+    <title>Inicio de Sesión</title>
+</head>
+<body>
+<div class="wrapper wrapper-full-page">
+    <div class="full-page  section-image" data-color="" data-image="assets/img/lab.jpg" ;>
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="content">
+            <div class="container">
+                <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+                    <form method="POST" th:action="@{/login}">
+                        <div class="card card-login card-hidden">
+                            <div class="card-header ">
+<!--                                <h3 class="header text-center">Inicio de Sesión</h3>-->
+                                <div class="text-center">
+<!--                                    <img src="../assets/img/TracingTest2.png" width="100" height="100" />-->
+                                    <img src="../assets/img/LogoTracingTest.png" width="150" height="160" />
+                                </div>
+                            </div>
+                            <div class="card-body ">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>S E S S I O N</label>
+                                        <input type="email" placeholder="Email" class="form-control" name="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>P A S S W O R D</label>
+                                        <input type="password" placeholder="Password" class="form-control" name="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ID</label>
+                                        <input type="lab" placeholder="Laboratory" class="form-control" name="labname">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox" name="remember-me">
+                                                <span class="form-check-sign"></span>
+                                                Keep session active
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="nameCorreo">forget your password?</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer ml-auto mr-auto">
+                                <button type="submit" class="btn-fill btn-wd btn btn-info">Login</button>
+                            </div>
+                            <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                                Wrong user or password
+                            </div>
+                            <div th:if="${param.logout}" class="alert alert-success" role="alert">
+                                Session ended
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<th:block th:include="/dependences/accesos/_RequiredScripts"></th:block>
+</html>
